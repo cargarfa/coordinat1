@@ -1,0 +1,72 @@
+﻿<Page
+    x:Class="coordinat.Views.vIPersona"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:coordinat.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="using:coordinat.ViewModels"
+    mc:Ignorable="d" Loaded="Page_Loaded">
+    <!--añado el datacontext de donde va a coger los datos, el viewmodel correspondiente-->
+    <Page.DataContext>
+        <vm:vmIPersona/>
+    </Page.DataContext>
+    <!--le enlazo los recuros de estilos, mirar de sacar fuera-->
+    <Page.Resources>
+        <!--estilos-->
+        <Style TargetType="Rectangle">
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="Height" Value="200"/>
+        </Style>
+
+        <Style TargetType="Image">
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="Height" Value="150"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Stretch" Value="UniformToFill"/>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="MaxHeight" Value="150"/>
+            <Setter Property="TextTrimming" Value="WordEllipsis"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+        </Style>
+        <Style x:Key="Stack_H" TargetType="StackPanel">
+            <Setter Property="Orientation" Value="Horizontal"/>
+        </Style>
+        <Style x:Key="Stack_V" TargetType="StackPanel">
+            <Setter Property="Width" Value="500"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+        <Style TargetType="Border">
+            <Setter Property="BorderBrush" Value="DarkGray"/>
+            <Setter Property="BorderThickness" Value="2"/>
+        </Style>
+    </Page.Resources>
+    <!--creo lo que se va a ver-->
+    <RelativePanel>
+        <!--FILTRO LISTA-->
+        <StackPanel x:Name="filtroPersona">
+            
+        </StackPanel>
+        <!--TIPOS DE FORMULARIO APP BAR-->
+        <StackPanel x:Name="tablasPersona" RelativePanel.AlignRightWith="filtroPersona">
+            
+        </StackPanel>
+        <!--LISTA DE OBJETOS-->
+        <ListView x:Name="listaPersonas" RelativePanel.Above="filtroPersona" SelectedItem="{Binding personaActual }"><!--Mode=TwoWay-->
+            <Border DataContext="{Binding Carlos}">
+                <StackPanel Style="{StaticResource Stack_H}">
+                    <Image Source="{Binding Foto}"/>
+                    <StackPanel Style="{StaticResource Stack_V}">
+                        <TextBlock FontSize="45" FontWeight="Bold" Text="{Binding Nombre}"/>
+                        <TextBlock FontSize="30" FontStyle="Italic" Text="Programer"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </ListView>
+        <!--DATOS DE OBJETO SEGÚN FORMULARIO CONTROL USER-->
+        <StackPanel x:Name="datosPersona" RelativePanel.Above="tablasPersona">
+            
+        </StackPanel>
+    </RelativePanel>
+</Page>

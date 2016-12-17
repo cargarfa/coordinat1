@@ -1,4 +1,6 @@
+using System;
 using System.Threading.Tasks;
+using Template10.Services.NavigationService;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
@@ -20,6 +22,7 @@ namespace coordinat.Views
             var index = int.Parse(_SerializationService.Deserialize(e.Parameter?.ToString()).ToString());
             //index es el parametro que le paso cuando lo llamo desde shell
             MyPivot.SelectedIndex = index;
+          //  NavigationService.Navigate(new Uri("vIpersona.xaml", UriKind.Relative));
         }
     }
 }

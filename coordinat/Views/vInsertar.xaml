@@ -17,8 +17,40 @@
         <!--lo relaciono con su view model-->
         <vm:vmInsertar x:Name="ViewModel" />
     </Page.DataContext>
+    <!--estilos para la lista con imagenes-->
 
+       
+  
     <Page.Resources>
+      <!--estilos-->
+        <Style TargetType="Rectangle">
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="Height" Value="200"/>
+        </Style>
+
+        <Style TargetType="Image">
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="Height" Value="150"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Stretch" Value="UniformToFill"/>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="MaxHeight" Value="150"/>
+            <Setter Property="TextTrimming" Value="WordEllipsis"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+        </Style>
+        <Style x:Key="Stack_H" TargetType="StackPanel">
+            <Setter Property="Orientation" Value="Horizontal"/>
+        </Style>
+        <Style x:Key="Stack_V" TargetType="StackPanel">
+            <Setter Property="Width" Value="500"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+        <Style TargetType="Border">
+            <Setter Property="BorderBrush" Value="DarkGray"/>
+            <Setter Property="BorderThickness" Value="2"/>
+        </Style>
+        <!--conversor-->
         <converter:ValueWhenConverter x:Name="FalseWhenTrueConverter">
             <converter:ValueWhenConverter.When>
                 <x:Boolean>True</x:Boolean>
@@ -89,6 +121,11 @@
 
             <!--  settings insertar persona  -->
             <PivotItem DataContext="{Binding vmInsertar}" Header="Persona">
+                
+                    <!--<Interactivity:Interaction.Behaviors>
+                        <Behaviors:NavButtonBehavior Direction="Forward" Frame="{x:Bind Frame, Mode=OneWay}" />
+                    </Interactivity:Interaction.Behaviors>-->
+                
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="2*"/>
@@ -99,7 +136,13 @@
                               VerticalScrollBarVisibility="Auto"
                               Grid.Column="0">
                         <RelativePanel HorizontalAlignment="Left">
-                            
+                            <ListView>
+                                <Border>
+                                    <StackPanel Style="{StaticResource Stack_H}">
+                                      
+                                    </StackPanel>
+                                </Border>
+                            </ListView>    
                         </RelativePanel>
                     </ScrollViewer>
                 </Grid>
