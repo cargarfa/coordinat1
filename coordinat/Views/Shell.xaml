@@ -15,7 +15,7 @@
     <Controls:HamburgerMenu x:Name="MyHamburgerMenu">
 
         <Controls:HamburgerMenu.PrimaryButtons>
-            <!--  mainpage button  -->
+            <!--  mainpage button, se muestra pagina principal con estadisticas  -->
             <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:MainPage">
                 <StackPanel Orientation="Horizontal">
                     <SymbolIcon Width="48"
@@ -23,10 +23,18 @@
                                 Symbol="Home" />
                     <TextBlock Margin="12,0,0,0"
                                VerticalAlignment="Center"
-                               Text="Home" />
+                               Text="Inicio" />
                 </StackPanel>
             </Controls:HamburgerButtonInfo>
-            <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:MainPage">
+            <!--boton insertar-->
+            <Controls:HamburgerButtonInfo x:Name="paginaInsertar"
+                                          PageParameter="0"                                        
+                                          PageType="views:vInsertar">
+                <!--Page parameter: Le pasa parametro a la pagina que va
+                PageType-->
+                <Controls:HamburgerButtonInfo.NavigationTransitionInfo>
+                    <SuppressNavigationTransitionInfo />
+                </Controls:HamburgerButtonInfo.NavigationTransitionInfo>
                 <StackPanel Orientation="Horizontal">
                     <SymbolIcon Width="48"
                                 Height="48"
@@ -36,6 +44,7 @@
                                Text="Insertar" />
                 </StackPanel>
             </Controls:HamburgerButtonInfo>
+            <!--boton unir-->
             <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:MainPage">
                 <StackPanel Orientation="Horizontal">
                     <SymbolIcon Width="48"
