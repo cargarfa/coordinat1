@@ -92,8 +92,10 @@
             </Controls:HamburgerButtonInfo>
             <!--  settingspage button  -->
             <Controls:HamburgerButtonInfo x:Name="SettingsButton"
-                                          PageParameter="0"
+                                          PageParameter="0"                                        
                                           PageType="views:SettingsPage">
+                <!--Page parameter: Le pasa parametro a la pagina que va
+                PageType-->
                 <Controls:HamburgerButtonInfo.NavigationTransitionInfo>
                     <SuppressNavigationTransitionInfo />
                 </Controls:HamburgerButtonInfo.NavigationTransitionInfo>

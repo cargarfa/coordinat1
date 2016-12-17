@@ -18,6 +18,7 @@ namespace coordinat.Views
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             var index = int.Parse(_SerializationService.Deserialize(e.Parameter?.ToString()).ToString());
+            //index es el parametro que le paso cuando lo llamo desde shell
             MyPivot.SelectedIndex = index;
         }
     }
